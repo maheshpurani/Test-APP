@@ -38,7 +38,16 @@ stages:
 #      - ''
 #    nonErpDestinations:
 #      - ''
-
+artifactDeployment:
+  nexus:
+    version: nexus3
+    url: localhost:8081/repository/
+    repository: maven-snapshots
+    credentialsId: 'nexusCredit'
+    additionalClassifiers:
+      - type: jar
+        classifier: classes
+ 
   productionDeployment:
     forceDowntimeDeployment: true
     cfTargets:
